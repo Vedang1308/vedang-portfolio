@@ -23,6 +23,8 @@
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
+    max-width: 100%;
+    /* Prevent horizontal overflow globally */
 }
 
 body {
@@ -31,7 +33,9 @@ body {
     font-family: var(--font-body);
     line-height: 1.6;
     overflow-x: hidden;
+    /* Double safety */
     position: relative;
+    width: 100vw;
 }
 
 a {
@@ -116,6 +120,8 @@ h6 {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    width: 100%;
+    /* Ensure container takes full width */
 }
 
 .section {
@@ -139,6 +145,8 @@ h6 {
     cursor: pointer;
     font-family: var(--font-heading);
     letter-spacing: 0.5px;
+    max-width: none;
+    /* Allow buttons to size naturally */
 }
 
 .btn-primary {
@@ -247,6 +255,8 @@ h6 {
     flex-direction: column;
     gap: 6px;
     cursor: pointer;
+    width: 30px;
+    /* Fixed width for toggle */
 }
 
 .bar {
@@ -258,7 +268,8 @@ h6 {
 
 /* HERO SECTION */
 .hero {
-    height: 100vh;
+    min-height: 100vh;
+    /* Allow it to grow if content is tall */
     display: flex;
     align-items: center;
     padding-top: var(--nav-height);
@@ -318,6 +329,8 @@ h6 {
 .hero-buttons {
     display: flex;
     gap: 20px;
+    flex-wrap: wrap;
+    /* Allow buttons to wrap on small screens */
 }
 
 /* Hero Visual - Code Card */
@@ -325,6 +338,7 @@ h6 {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 .code-cardglass {
@@ -373,6 +387,7 @@ pre {
     color: #a9b7c6;
     font-size: 0.9rem;
     overflow-x: auto;
+    max-width: 100%;
 }
 
 .language-python {
@@ -529,6 +544,7 @@ pre {
 .project-links a {
     font-size: 1.2rem;
     color: var(--text-secondary);
+    max-width: none;
 }
 
 .project-links a:hover {
@@ -644,6 +660,7 @@ pre {
     align-items: center;
     gap: 10px;
     font-size: 1.1rem;
+    max-width: none;
 }
 
 .contact-item:hover {
@@ -686,6 +703,7 @@ pre {
 }
 
 /* RESPONSIVE MEDIA QUERIES */
+/* Tablet & Large Mobile */
 @media (max-width: 768px) {
     .nav-menu {
         position: fixed;
@@ -712,7 +730,6 @@ pre {
         grid-template-columns: 1fr;
         text-align: center;
         padding-top: 30px;
-        gap: 30px;
     }
 
     .hero-content {
@@ -721,7 +738,7 @@ pre {
 
     .hero-visual {
         order: 1;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
     }
 
     .hero-buttons {
@@ -734,8 +751,7 @@ pre {
     }
 
     .hero-title {
-        font-size: 2.8rem;
-        /* Slightly smaller for mobile */
+        font-size: 3rem;
     }
 
     .section-title {
@@ -749,22 +765,17 @@ pre {
     /* Timeline Mobile Fixes */
     .timeline::after {
         left: 0;
-        /* Move line to the very left edge */
     }
 
     .timeline-item {
         padding-left: 25px;
-        /* Reduce padding from 50px */
         margin-left: 10px;
-        /* Slight offset for the dot */
     }
 
     .timeline-dot {
         left: -18px;
-        /* Adjust dot position relative to the new line */
     }
 
-    /* General Mobile Padding */
     .section {
         padding: 60px 0;
     }
@@ -776,5 +787,66 @@ pre {
 
     .project-links {
         align-self: flex-start;
+    }
+
+    /* Ensure grids stack on smaller screens */
+    .projects-grid,
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Small Mobile Devices (max-width: 480px) */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+        /* Even smaller for phones */
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    /* Hero Visual Safety */
+    .hero-visual .code-cardglass {
+        padding: 15px;
+        font-size: 0.8rem;
+    }
+
+    /* Prevent project title overflow */
+    .project-header h3 {
+        font-size: 1.2rem;
+        word-wrap: break-word;
+        /* Force wrapping */
+        overflow-wrap: break-word;
+        /* Modern property */
+    }
+
+    /* Timeline Adjustment for tiny screens */
+    .timeline-item {
+        padding-left: 20px;
+    }
+
+    .about-badges {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .page-title {
+        font-size: 1.8rem;
     }
 }
