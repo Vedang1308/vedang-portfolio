@@ -712,6 +712,7 @@ pre {
         grid-template-columns: 1fr;
         text-align: center;
         padding-top: 30px;
+        gap: 30px;
     }
 
     .hero-content {
@@ -720,7 +721,7 @@ pre {
 
     .hero-visual {
         order: 1;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
     }
 
     .hero-buttons {
@@ -733,7 +734,8 @@ pre {
     }
 
     .hero-title {
-        font-size: 3rem;
+        font-size: 2.8rem;
+        /* Slightly smaller for mobile */
     }
 
     .section-title {
@@ -742,5 +744,37 @@ pre {
 
     .about-text p {
         text-align: left;
+    }
+
+    /* Timeline Mobile Fixes */
+    .timeline::after {
+        left: 0;
+        /* Move line to the very left edge */
+    }
+
+    .timeline-item {
+        padding-left: 25px;
+        /* Reduce padding from 50px */
+        margin-left: 10px;
+        /* Slight offset for the dot */
+    }
+
+    .timeline-dot {
+        left: -18px;
+        /* Adjust dot position relative to the new line */
+    }
+
+    /* General Mobile Padding */
+    .section {
+        padding: 60px 0;
+    }
+
+    .project-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .project-links {
+        align-self: flex-start;
     }
 }
