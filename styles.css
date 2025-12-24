@@ -514,7 +514,7 @@ body {
 
     .proj-card-split {
         grid-template-columns: 1fr;
-        grid-template-rows: 200px auto;
+        grid-template-rows: auto auto;
     }
 
     .proj-visual {
