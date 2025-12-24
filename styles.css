@@ -105,6 +105,7 @@ body {
     font-family: var(--font-mono);
     font-size: 0.85rem;
     transition: color 0.2s;
+    white-space: nowrap;
 }
 
 .nav-link:hover {
@@ -166,6 +167,12 @@ body {
     max-width: 580px;
 }
 
+.hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
 .btn {
     display: inline-flex;
     align-items: center;
@@ -177,6 +184,7 @@ body {
     text-decoration: none;
     transition: all 0.2s;
     border: 1px solid transparent;
+    cursor: pointer;
 }
 
 .btn-primary {
@@ -202,7 +210,7 @@ body {
     color: #fff;
 }
 
-/* 3. TERMINAL CARDS (Structure over Fluidity) */
+/* 3. TERMINAL CARDS */
 .tech-card {
     background: #0f0f0f;
     border: 1px solid var(--border-dim);
@@ -217,10 +225,8 @@ body {
 .tech-card:hover {
     border-color: var(--accent-green);
     box-shadow: 0 4px 20px rgba(0, 255, 65, 0.05);
-    /* Subtle green glow */
 }
 
-/* Card Header Strip (Like a window handle) */
 .tech-card::before {
     content: '';
     position: absolute;
@@ -237,7 +243,6 @@ body {
     opacity: 1;
 }
 
-/* CS ANIMATION: Binary Rain / Scanline */
 .bg-scanline {
     position: absolute;
     top: 0;
@@ -250,7 +255,6 @@ body {
     z-index: 0;
 }
 
-/* Sarcasm Integration (Subtle, Monospace) */
 .sarcastic-aside {
     color: var(--text-secondary);
     font-style: italic;
@@ -294,7 +298,7 @@ body {
     color: #d4d4d4;
 }
 
-/* Projects: Terminal Window Style */
+/* Projects */
 .project-list {
     display: flex;
     flex-direction: column;
@@ -317,13 +321,13 @@ body {
     justify-content: center;
     border-right: 1px solid var(--border-dim);
     position: relative;
+    min-height: 250px;
 }
 
 .proj-content {
     padding: 32px;
 }
 
-/* Visuals (ASCII / Abstract CS) */
 .visual-ascii {
     font-family: var(--font-mono);
     font-size: 0.7rem;
@@ -333,7 +337,6 @@ body {
     opacity: 0.5;
 }
 
-/* Animations */
 .anim-blink {
     animation: blink 1s step-end infinite;
 }
@@ -372,7 +375,7 @@ body {
     color: var(--accent-blue);
 }
 
-/* Skills Grid (Circuit Layout) */
+/* Skills Grid */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -391,7 +394,7 @@ body {
     opacity: 0.5;
 }
 
-/* Code Block in Hero */
+/* Code Block */
 .code-card {
     background: #0d1117;
     border: 1px solid #30363d;
@@ -407,31 +410,17 @@ body {
     color: #ff7b72;
 }
 
-/* Red */
 .def {
     color: #79c0ff;
 }
 
-/* Blue */
 .str {
     color: #a5d6ff;
 }
 
-/* Light Blue */
 .cmt {
     color: #8b949e;
     font-style: italic;
-}
-
-@media (max-width: 768px) {
-    .proj-card-split {
-        grid-template-columns: 1fr;
-        grid-template-rows: 150px auto;
-    }
-
-    .hero-name {
-        font-size: 2.8rem;
-    }
 }
 
 .section-title {
@@ -441,7 +430,6 @@ body {
     border-left: 4px solid var(--accent-green);
 }
 
-/* Glitch Effect on Hover for Titles */
 .proj-title:hover {
     text-shadow: 2px 0 var(--accent-green), -2px 0 var(--accent-purple);
 }
@@ -459,4 +447,127 @@ body {
     color: var(--text-secondary);
     font-size: 0.85rem;
     margin-bottom: 20px;
+}
+
+/* === RESPONSIVE BREAKPOINTS === */
+
+/* Tablet & Smaller Desktop */
+@media (max-width: 1024px) {
+    .container {
+        width: 95%;
+        max-width: 100%;
+    }
+
+    .hero {
+        padding: 80px 0 60px;
+    }
+
+    .hero-name {
+        font-size: 3rem;
+    }
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+    .header-container {
+        width: 95%;
+        padding: 0 10px;
+    }
+
+    /* Scrollable Horizontal Nav for Mobile */
+    .nav-links {
+        gap: 16px;
+        overflow-x: auto;
+        padding-bottom: 4px;
+        -webkit-overflow-scrolling: touch;
+        /* Smooth scroll on iOS */
+    }
+
+    .nav-links::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Hide scrollbar */
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .hero-role {
+        display: inline-block;
+        margin-bottom: 20px;
+    }
+
+    .hero-bio {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-actions {
+        justify-content: center;
+    }
+
+    .proj-card-split {
+        grid-template-columns: 1fr;
+        grid-template-rows: 200px auto;
+    }
+
+    .proj-visual {
+        border-right: none;
+        border-bottom: 1px solid var(--border-dim);
+    }
+
+    .exp-header {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .exp-date {
+        font-size: 0.8rem;
+        opacity: 0.8;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Footer Stack */
+    #contact div {
+        flex-direction: column;
+        gap: 16px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .hero-name {
+        font-size: 2.5rem;
+    }
+
+    .tech-card,
+    .proj-content,
+    .code-card {
+        padding: 20px;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    /* Full width buttons for easier tapping */
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+        padding-left: 12px;
+        margin-bottom: 24px;
+    }
 }
