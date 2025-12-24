@@ -23,7 +23,7 @@
           
     <!-- Internal Network Connections (V-shape) -->
     <path d="M28 35 L50 70 L72 35" 
-          stroke="white" 
+          stroke="#1d1d1f" 
           stroke-width="4" 
           stroke-linecap="round"
           opacity="0.9"/>
