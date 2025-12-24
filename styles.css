@@ -406,6 +406,11 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
+.code-line {
+    display: block;
+    line-height: 1.5;
+}
+
 .kw {
     color: #ff7b72;
 }
